@@ -8,7 +8,7 @@ const Home = ({ movies }) => {
     return (
         <Box variant="container">
             <Box my={40} as="h2">Latest Movies</Box>
-            <Flex justifyContent="space-between" flexDirection={{ _: "column", md: "row" }} mb={100}>
+            <Flex justifyContent="space-between" flexDirection={{ _: "column", md: "row" }} mb={100} flexWrap="wrap">
                 {movies.map(movie => (
                     <Box key={movie.id} width={{ _: "100%", md: "30%" }}>
                         <Card movie={movie} />
