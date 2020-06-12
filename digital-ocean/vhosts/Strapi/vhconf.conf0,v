@@ -1,0 +1,146 @@
+head	1.4;
+access;
+symbols;
+locks
+	root:1.4; strict;
+comment	@# @;
+
+
+1.4
+date	2020.06.10.17.10.24;	author root;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2020.06.10.17.09.49;	author root;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2020.06.10.16.41.08;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2020.06.10.16.30.51;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@/usr/local/lsws/conf/vhosts/Strapi/vhconf.conf0
+@
+
+
+1.4
+log
+@Update
+@
+text
+@docRoot                   $VH_ROOT/html/
+enableGzip                1
+
+errorlog $VH_ROOT/logs/error.log {
+  useServer               1
+  logLevel                DEBUG
+  rollingSize             10M
+}
+
+accesslog $VH_ROOT/logs/access.log {
+  useServer               0
+  rollingSize             10M
+  keepDays                7
+  compressArchive         0
+}
+
+index  {
+  useServer               0
+  indexFiles              index.html, index.php
+  autoIndex               0
+  autoIndexURI            /_autoindex/default.php
+}
+
+errorpage 404 {
+  url                     /error404.html
+}
+
+expires  {
+  enableExpires           1
+}
+
+accessControl  {
+  allow                   *
+}
+
+realm SampleProtectedArea {
+
+  userDB  {
+    location              conf/vhosts/Strapi/htpasswd
+    maxCacheSize          200
+    cacheTimeout          60
+  }
+
+  groupDB  {
+    location              conf/vhosts/Strapi/htgroup
+    maxCacheSize          200
+    cacheTimeout          60
+  }
+}
+
+context /.well-known/ {
+  location                /usr/local/lsws/Strapi/html/.well-known/
+  allowBrowse             1
+  addDefaultCharset       off
+}
+
+context / {
+  type                    appserver
+  location                /usr/local/lsws/Strapi/html/node/
+  binPath                 /usr/bin/node
+  appType                 node
+  startupFile             start.js
+
+  rewrite  {
+
+  }
+  addDefaultCharset       off
+}
+
+rewrite  {
+  enable                  1
+  autoLoadHtaccess        1
+  logLevel                0
+}
+
+@
+
+
+1.3
+log
+@Update
+@
+text
+@d62 1
+a62 1
+  startupFile             ts.js
+@
+
+
+1.2
+log
+@Update
+@
+text
+@d62 1
+a62 1
+  startupFile             start.js
+@
+
+
+1.1
+log
+@Update
+@
+text
+@d62 5
+@
