@@ -1,6 +1,8 @@
 import {NextSeo} from 'next-seo'
 import {Box} from "reflexbox"
 import fetch from "isomorphic-unfetch"
+import { I18nContext } from 'next-i18next'
+import {useContext} from 'react'
 
 function About({page}) {
     const SEO = {
@@ -13,13 +15,17 @@ function About({page}) {
         }
     }
 
+    const { i18n: { language } } = useContext(I18nContext)
+
     return (
         <>
             <NextSeo {...SEO } />
             <Box variant="container">
 
-                <Box as="h2" my={40}>{page.title}</Box>
-                <div dangerouslySetInnerHTML={{ __html: page.content }} />
+                <Box as="h2" my={40}>
+                    {language === 'en' ? page.title : page.title_hr}
+                </Box>
+                <div dangerouslySetInnerHTML={{ __html: language === 'en' ? page.content : page.content_hr }} />
             </Box>
         </>
     )

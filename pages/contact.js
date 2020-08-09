@@ -1,5 +1,26 @@
-function Contact() {
-    return "This is a contact page"
+import { withTranslation } from '../i18n'
+import {Box} from 'reflexbox'
+
+function Contact({t}) {
+    return (
+        <>
+            <Box variant="container">
+                <Box as="h2" my={40}>
+                    {t('common:Latest Movies')}<br />
+                    {t('contact:Contact')}
+                </Box>
+                <div>
+                    {t('contact:This is a contact page')}
+                </div>
+            </Box>
+        </>
+    )
 }
 
-export default Contact
+Contact.getInitialProps = async () => {
+    return {
+        namespacesRequired: ['common','contact']
+    }
+}
+
+export default withTranslation()(Contact)

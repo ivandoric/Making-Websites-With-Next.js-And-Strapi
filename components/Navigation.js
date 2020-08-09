@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import Link from 'next/link'
+import { Link } from '../i18n'
 import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import HeaderContext from '../contexts/HeaderContext'

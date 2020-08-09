@@ -3,7 +3,7 @@ import { rem } from 'polished'
 import { Flex, Box } from 'reflexbox'
 import Navigation from 'components/Navigation'
 import Link from 'next/link'
-import ToggleNavigationColorButton from 'components/ToggleNavigationColorButton'
+import LanguageSwitcher from 'components/LanguageSwitcher'
 
 function Header({ isDark }) {
     return (
@@ -20,7 +20,7 @@ function Header({ isDark }) {
                     </div>
 
                     <Navigation />
-                    <ToggleNavigationColorButton />
+                    <LanguageSwitcher />
                 </Flex>
             </Box>
         </HeaderStyled>
