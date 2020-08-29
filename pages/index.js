@@ -4,8 +4,6 @@ import { Flex, Box } from 'reflexbox'
 import { withTranslation } from '../i18n'
 
 const Home = ({ movies, t }) => {
-    console.log(movies)
-
     return (
         <Box variant="container">
             <Box my={40} as="h2">{t('Latest Movies')}</Box>

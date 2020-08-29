@@ -16,6 +16,7 @@
     "next": "^9.5.1",
     "next-i18next": "^6.0.2",
     "next-seo": "^4.5.0",
+    "nookies": "^2.4.0",
     "polished": "^3.5.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",

@@ -1,5 +1,5 @@
 import { i18n } from '../i18n'
-import styled from "@emotion/styled";
+import styled from "@emotion/styled"
 import { useContext } from 'react'
 import { I18nContext } from 'next-i18next'
 
