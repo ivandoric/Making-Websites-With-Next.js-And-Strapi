@@ -19,8 +19,8 @@ function Header({ isDark }) {
                         </Link>
                     </div>
 
-                    <Navigation />
-                    <LanguageSwitcher />
+                    {/* <Navigation />
+                    <LanguageSwitcher /> */}
                 </Flex>
             </Box>
         </HeaderStyled>

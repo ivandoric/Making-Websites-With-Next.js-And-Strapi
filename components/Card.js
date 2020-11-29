@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import Link from 'next/link'
+import Image from 'next/image'
 
 function Card ({ movie }) {
     const { API_URL } = process.env
@@ -13,7 +14,7 @@ function Card ({ movie }) {
         <CardStyled>
             {movie.movie_poster && (
                 <div className="poster">
-                    <img src={API_URL + movie.movie_poster.url} alt=""/>
+                    <Image src={API_URL + movie.movie_poster.url} width={movie.movie_poster.width} height={movie.movie_poster.height} />
                 </div>
             )}
             <div className="body">
