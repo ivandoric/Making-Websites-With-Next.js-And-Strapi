@@ -4,7 +4,11 @@ import { Flex, Box } from 'reflexbox'
 import { withTranslation } from '../i18n'
 import Image from 'next/image'
 
+import propTypes from 'prop-types'
+
 const Home = ({ movies, t }) => {
+    console.log(movies)
+
     return (
         <Box variant="container">
             <Image src="/images/chewy.jpg" width={2400} height={1600} />
@@ -18,6 +22,11 @@ const Home = ({ movies, t }) => {
             </Flex>
         </Box>
     )
+}
+
+Home.propTypes = {
+    t: propTypes.func.isRequired,
+    movies: propTypes.array.isRequired,
 }
 
 export async function getServerSideProps() {

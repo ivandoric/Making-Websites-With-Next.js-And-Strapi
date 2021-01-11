@@ -2,7 +2,9 @@ import styled from '@emotion/styled'
 import Link from 'next/link'
 import Image from 'next/image'
 
-function Card ({ movie }) {
+import propTypes from 'prop-types'
+
+function Card ({ movie, year }) {
     const { API_URL } = process.env
 
     if(!movie.genre) {
@@ -18,7 +20,7 @@ function Card ({ movie }) {
                 </div>
             )}
             <div className="body">
-                <h3>{ movie.movie_title }</h3>
+                <h3>{ movie.movie_title } - {year}</h3>
                 <p dangerouslySetInnerHTML={{ __html: movie.description }} />
 
                 <Link href="/movies/[genre]/[slug]" as={`/movies/${movie.genre.slug}/${movie.slug}`}>
@@ -27,6 +29,18 @@ function Card ({ movie }) {
             </div>
         </CardStyled>
     )
+}
+
+Card.propTypes = {
+    movie: propTypes.oneOfType([
+        propTypes.object,
+        propTypes.array
+    ]),
+    year: propTypes.number
+}
+
+Card.defaultProps = {
+    year: 1984
 }
 
 const CardStyled = styled.div`
