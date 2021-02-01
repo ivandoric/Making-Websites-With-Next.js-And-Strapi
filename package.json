@@ -21,6 +21,8 @@
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-query": "^3.6.0",
+    "react-select": "^4.0.2",
     "reflexbox": "^4.0.6"
   }
 }
